@@ -126,7 +126,7 @@ const HomePage = ({ navigation }) => {
             onPress={handleStartClick}
             background={TouchableNativeFeedback.Ripple("#0056b3", false)}>
             <View style={styles.navButton}>
-              <Text style={styles.navButtonText}>Signup</Text>
+              <Text style={styles.navButtonText}>Sign up</Text>
             </View>
           </TouchableNativeFeedback>
         </View>
@@ -152,7 +152,7 @@ const HomePage = ({ navigation }) => {
           onPress={handleStartClick}
           background={TouchableNativeFeedback.Ripple("#1e7e34", false)}>
           <View style={styles.startButton}>
-            <Text style={styles.startButtonText}>Iniziamo!</Text>
+            <Text style={styles.startButtonText}>Start!</Text>
           </View>
         </TouchableNativeFeedback>
       </View>
@@ -175,6 +175,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Email"
+              placeholderTextColor="white"
               value={loginData.email}
               onChangeText={(text) =>
                 setLoginData({ ...loginData, email: text })
@@ -185,6 +186,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Password"
+              placeholderTextColor="white"
               value={loginData.password}
               onChangeText={(text) =>
                 setLoginData({ ...loginData, password: text })
@@ -221,6 +223,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Nome"
+              placeholderTextColor="white"
               value={formData.firstName}
               onChangeText={(text) =>
                 setFormData({ ...formData, firstName: text })
@@ -230,6 +233,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Cognome"
+              placeholderTextColor="white"
               value={formData.lastName}
               onChangeText={(text) =>
                 setFormData({ ...formData, lastName: text })
@@ -239,6 +243,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Email"
+              placeholderTextColor="white"
               value={formData.email}
               onChangeText={(text) => setFormData({ ...formData, email: text })}
               keyboardType="email-address"
@@ -247,6 +252,7 @@ const HomePage = ({ navigation }) => {
             <TextInput
               style={styles.input}
               placeholder="Password"
+              placeholderTextColor="white"
               value={formData.password}
               onChangeText={(text) =>
                 setFormData({ ...formData, password: text })
@@ -277,7 +283,7 @@ const HomePage = ({ navigation }) => {
                 ]}>
                 <Text style={styles.submitButtonText}>
                   {isCheckboxChecked
-                    ? "HAI IL PERMESSO DI ENTRARE!"
+                    ? "Hai il permesso di entrare!"
                     : "Devi essere maggiorenne"}
                 </Text>
               </View>
@@ -322,7 +328,7 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 20,
     color: "#333333",
-    fontWeight: "bold",
+    fontWeight: 600,
     fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
 
@@ -335,14 +341,15 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 48,
+    fontSize: 50,
     marginTop: -25,
-    marginBottom: 50,
+    marginBottom: 40,
     textAlign: "center",
-    color: "black",
-    textShadowColor: "#ffbb00",
-    textShadowRadius: 1,
-    textShadowOffset: { width: 1, height: 1 },
+    color: "#fff",
+    textShadowColor: "#black",
+    textShadowRadius: 10,
+    fontWeight: "bold",
+    fontFamily: Platform.OS === "ios" ? "System" : "Teko-regular",
   },
 
   logoContainer: {
@@ -358,8 +365,8 @@ const styles = StyleSheet.create({
   },
 
   startButton: {
-    backgroundColor: "#28a745",
-    padding: 15,
+    backgroundColor: "#ffbb00",
+    padding: 20,
     borderRadius: 5,
     margin: 20,
     marginTop: 100,
@@ -367,8 +374,10 @@ const styles = StyleSheet.create({
   },
 
   startButtonText: {
-    fontSize: 24,
-    color: "#fff",
+    fontSize: 28,
+    color: "#333333",
+    fontWeight: "bold",
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
   modalContainer: {
     flex: 1,
@@ -377,25 +386,32 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 0.8)",
   },
   modalContent: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffbb00",
     padding: 20,
     borderRadius: 10,
     width: "90%",
     margin: 10,
+    border: 5,
+    borderColor: "#333333",
   },
   modalTitle: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
     textAlign: "center",
+    color: "#333333",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "white",
     padding: 10,
     marginVertical: 10,
     borderRadius: 5,
     width: "100%",
+    backgroundColor: "#333333",
+    color: "white",
+    fontWeight: "bold",
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
   closeButton: {
     position: "absolute",
@@ -405,7 +421,9 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     fontSize: 20,
-    color: "#000",
+    color: "#333333",
+    fontWeight: "bold",
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
   submitButton: {
     backgroundColor: "#28a745",
@@ -415,9 +433,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   submitButtonText: {
-    color: "#fff",
+    color: "#333333",
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
   checkbox: {
     flexDirection: "row",
@@ -428,15 +447,17 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderWidth: 1,
-    borderColor: "#000",
+    borderColor: "#333333",
     marginRight: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "#333333",
+    borderRadius: 5,
   },
   checkboxChecked: {
     backgroundColor: "#28a745",
   },
   checkboxLabel: {
-    fontSize: 16,
+    fontSize: 17,
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif-medium",
   },
   submitButtonDisabled: {
     backgroundColor: "#cccccc",
